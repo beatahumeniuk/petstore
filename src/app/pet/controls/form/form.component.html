@@ -1,0 +1,37 @@
+<div class="Form">
+
+
+  <form class="Form__pet-form" [formGroup]="formGroup" (ngSubmit)="addNewPet(formGroup.value)">
+    <mat-form-field class="Form__pet-full-width" appearance="fill">
+      <mat-label>Imię</mat-label>
+      <input matInput formControlName="name" [required]="true">
+    </mat-form-field>
+
+    <mat-form-field class="Form__pet-full-width" appearance="fill">
+      <mat-label>Kategoria</mat-label>
+      <input matInput formControlName="category">
+    </mat-form-field>
+
+    <mat-form-field class="Form__example-chip-list" appearance="fill">
+      <mat-label>Tagi</mat-label>
+      <mat-chip-list #chipList aria-label="Tagi ">
+        <mat-chip *ngFor="let tag of tags" (removed)="remove(tag)">
+          {{tag}}
+          <button class="Form__chip_button" matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          #tagName
+          placeholder="Nowy tag... "
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+
+    <button [disabled]="submitted" class="Form__button" mat-raised-button color="primary">Dodaj</button>
+  </form>
+
+</div>

@@ -1,0 +1,32 @@
+@import "src/scss/global";
+.PetForm {
+  display: flex;
+  justify-content: space-between;
+
+  &__table {
+    padding: 30px;
+  }
+
+  &__button {
+    margin-left: 50px;
+  }
+
+  &__table_header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  &__card_content {
+    align-content: center;
+
+  }
+}
+
+table td, table th {
+  padding: 2px 10px;
+}
+
+table {
+  width: 100%;
+}

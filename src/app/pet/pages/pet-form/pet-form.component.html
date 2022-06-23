@@ -1,0 +1,36 @@
+<div class="PetForm">
+
+  <div class="PetForm__form">
+    <mat-card>
+      <mat-card-title>
+        Dodaj zwierzę:
+      </mat-card-title>
+      <mat-card-content>
+        <div>
+          <petstore-form
+            [blockedForm]="submitted.asObservable()"
+            (savePet)="saveNewPet($event)"></petstore-form>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="PetForm__table">
+    <mat-card>
+      <mat-card-title>
+        <div class="PetForm__table_header">
+
+          <mat-card-title>Dostępne zwierzęta:</mat-card-title>
+          <mat-card-title>
+            <button class="PetForm__button" mat-raised-button color="primary" (click)="refresh()">Odśwież</button>
+          </mat-card-title>
+        </div>
+      </mat-card-title>
+      <mat-card-content class="PetForm__card_content">
+        <div>
+          <petstore-table [data]="dataSource.asObservable()"></petstore-table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
