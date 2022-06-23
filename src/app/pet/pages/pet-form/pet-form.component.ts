@@ -53,6 +53,7 @@ export class PetFormComponent implements OnInit, OnDestroy {
         this.showSnackbar("Zapisano pomyślnie!");
       }, () => {
         this.showSnackbar("Zapis nie powiódł się!");
+        this.submitted.next(false);
       });
   }
 
